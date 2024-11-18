@@ -1,50 +1,57 @@
-# Welcome to your Expo app 👋
+# Aplicativo Inova Week 2025 📱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+O Aplicativo Inova Week 2025 é um projeto desenvolvido como avaliação prática da disciplina de Desenvolvimento Mobile. Ele foi criado com React Native e utiliza o Supabase como backend para gerenciamento de autenticação, banco de dados e armazenamento em nuvem. O objetivo do aplicativo é facilitar a navegação pelos grupos participantes do evento Inova Week 2025, permitindo acesso às informações e avaliações de cada projeto.
 
-## Get started
+## 🛠️ Funcionalidades Principais
 
-1. Install dependencies
+- **Autenticação (Login)**: Permite que os usuários acessem o aplicativo utilizando e-mail e senha. O acesso às funcionalidades principais é restrito a usuários autenticados.
+- **Cadastro (Registro)**: Oferece uma funcionalidade para criação de contas, com validação por e-mail.
+- **Esqueci Minha Senha**: Possibilita o envio de e-mails para redefinição de senha, utilizando os recursos do Supabase.
+- **Lista de Grupos**: Exibe todos os grupos participantes do Inova Week 2025, com acesso restrito a usuários autenticados.
+- **Detalhes do Grupo**: Ao selecionar um grupo, são exibidas informações detalhadas sobre o projeto, incluindo membros, avaliações e o líder do grupo.
 
-   ```bash
-   npm install
-   ```
+##  📂 Estrutura do Banco de Dados
 
-2. Start the app
+O backend do aplicativo é composto pelas seguintes tabelas principais no Supabase:
 
-   ```bash
+- **Grupos**: Contém informações sobre os grupos participantes, como nome, descrição e líder do grupo.
+  - Atributos: `id`, `nome`, `descricao`, `descricao_detalhada`, `lider_id`.
+- **Alunos**: Representa os membros dos grupos, com informações básicas e relação com os grupos.
+  - Atributos: `id`, `nome`, `matricula`, `grupo_id`.
+- **Avaliações**: Armazena feedbacks e pontuações atribuídas aos grupos, associando-os a membros específicos.
+  - Atributos: `id`, `pontuacao`, `feedback`, `grupo_id`, `aluno_id`.
+
+## 🚀 Como Configurar e Executar o Projeto
+
+Para executar este projeto, é necessário ter o Node.js, npm e o Expo CLI instalados em sua máquina. Siga os passos abaixo:
+
+1. **Clonar o repositório**: Use o Git para clonar o repositório:
+    ```bash
+    git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+    cd SEU-REPOSITORIO
+    ```
+
+2. **Instalar as dependências**: No diretório do projeto, execute:
+    ```bash
+    npm install
+    ```
+    ```bash
+    npm install @supabase/supabase-js
+    ```
+    
+
+3. **Iniciar o aplicativo**: Inicie o aplicativo com:
+    ```bash
     npx expo start
-   ```
+    ```
+    Um QR Code será gerado. Utilize o Expo Go no seu dispositivo ou emulador para executar o aplicativo.
 
-In the output, you'll find options to open the app in a
+## Informações Adicionais
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- O aplicativo possui design responsivo e é otimizado para funcionar tanto em dispositivos móveis quanto em navegadores.
+- A integração com o Supabase foi implementada para gerenciar autenticação e manipulação de dados em tempo real.
+- O projeto foi desenvolvido com foco em clareza, funcionalidade e segurança.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Observações Finais
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Este projeto foi estruturado para atender aos requisitos da avaliação prática do B2, com organização do código e design intuitivo. Caso você seja o avaliador, as tabelas e dados necessários estão configurados no Supabase para validação. Recomenda-se seguir os passos descritos para executar o projeto corretamente.
